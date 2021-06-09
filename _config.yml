@@ -37,13 +37,13 @@ round-avatar: true
 social-network-links:
   #email: "someone@example.com"
   #facebook: deanattali
-  github: https://github.com/dhodapkarsoham
+  github: dhodapkarsoham
   #twitter: daattali
   #patreon: DeanAttali
   #youtube: c/daattali
 #  medium: yourname
 #  reddit: yourname
-  linkedin: www.linkedin.com/sohamdhodapkar
+  linkedin: sohamdhodapkar
 #  xing: yourname
 #  stackoverflow: "3943160/daattali"
 #  snapchat: deanat78
@@ -61,7 +61,7 @@ social-network-links:
 
 # If you want to show a link to an RSS in the footer, add the site description here.
 # If you don't want to show an RSS link, remove the following line.
-rss-description: This website is a virtual proof that I'm awesome
+#rss-description: This website is a virtual proof that I'm awesome
 
 # --- General options --- #
 
