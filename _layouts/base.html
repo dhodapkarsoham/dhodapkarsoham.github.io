@@ -29,7 +29,15 @@
     <a href="{{ '/aboutme' | relative_url }}" {% if page.url contains 'aboutme' %}aria-current="page"{% endif %}>About</a>
     <a href="{{ '/feed.xml' | relative_url }}">RSS</a>
   </nav>
-  <div class="appearance" hidden><label for="appearance-select">Appearance</label><select id="appearance-select"><option value="system">System</option><option value="light">Light</option><option value="dark">Dark</option></select></div>
+  <div class="appearance" hidden>
+    <span id="appearance-label">Dark mode</span>
+    <button id="appearance-toggle" class="theme-toggle" type="button" role="switch" aria-checked="false" aria-labelledby="appearance-label">
+      <span class="toggle-track" aria-hidden="true"><span class="toggle-thumb">
+        <svg class="toggle-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3.5"/><path d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"/></svg>
+        <svg class="toggle-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 15.2A8.5 8.5 0 0 1 8.8 4 8.5 8.5 0 1 0 20 15.2Z"/></svg>
+      </span></span>
+    </button>
+  </div>
 </header>
 <main id="main">{{ content }}</main>
 <footer class="site-footer wrap">

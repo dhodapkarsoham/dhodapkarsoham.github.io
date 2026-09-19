@@ -33,7 +33,7 @@ The homepage shows all published posts. Search includes local posts and the link
 
 ## Appearance
 
-The header provides System, Light, and Dark options. System follows device preferences, including live changes. An explicit choice is saved locally and applied before the page paints. All pages share the theme, including code blocks. With JavaScript disabled, the site follows the device color scheme.
+The header provides a light/dark toggle. Until a choice is made, it follows device preferences, including live changes. Toggling saves an explicit preference locally and applies it before the page paints. All pages share the theme, including code blocks. With JavaScript disabled, the site follows the device color scheme.
 
 External articles are maintained in `_data/external_posts.yml` and appear on the homepage and About page. Their links lead to the original publication; they are not republished in the RSS feed.
 

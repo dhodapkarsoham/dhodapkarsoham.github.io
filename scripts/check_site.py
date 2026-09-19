@@ -38,7 +38,7 @@ for route in ('index.html', 'aboutme/index.html'):
     for url in expected_external:
         if f'href="{url}"' not in html:
             errors.append(f'{route}: missing Neo4j article reference {url}')
-    if 'id="appearance-select"' not in html:
+    if 'id="appearance-toggle"' not in html:
         errors.append(f'{route}: missing appearance control')
 feed = ET.parse(root / 'feed.xml')
 if not feed.findall('./channel/item'):

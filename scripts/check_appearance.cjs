@@ -13,7 +13,10 @@ function boot({ saved, dark = false, blocked = false } = {}) {
     meta = {},
     wrapper = { hidden: true };
   const control = {
-    value: "system",
+    checked: "false",
+    setAttribute: (name, value) => {
+      if (name === "aria-checked") control.checked = value;
+    },
     closest: () => wrapper,
     addEventListener: (n, f) => (controlEvents[n] = f),
   };
@@ -50,10 +53,7 @@ function boot({ saved, dark = false, blocked = false } = {}) {
     wrapper,
     storage,
     initial,
-    choose: (v) => {
-      control.value = v;
-      controlEvents.change();
-    },
+    toggle: () => controlEvents.click(),
     systemChange: (v) => {
       system.matches = v;
       systemEvents.change();
@@ -64,7 +64,8 @@ function boot({ saved, dark = false, blocked = false } = {}) {
 let page = boot({ dark: true });
 assert.equal(page.initial, "dark");
 assert.equal(page.wrapper.hidden, false);
-page.choose("light");
+page.toggle();
+assert.equal(page.control.checked, "false");
 assert.equal(page.root.dataset.theme, "light");
 page.systemChange(true);
 assert.equal(page.root.dataset.theme, "light");
@@ -72,19 +73,21 @@ assert.equal(
   boot({ saved: page.storage.get("soham-appearance"), dark: true }).initial,
   "light",
 );
-page.choose("system");
+page.toggle();
+assert.equal(page.control.checked, "true");
+page.crossTab(null);
 page.systemChange(false);
 assert.equal(page.root.dataset.theme, "light");
 page.systemChange(true);
 assert.equal(page.root.dataset.theme, "dark");
 page.crossTab("light");
-assert.equal(page.control.value, "light");
+assert.equal(page.control.checked, "false");
 assert.equal(page.root.dataset.theme, "light");
 page.crossTab(null);
-assert.equal(page.control.value, "system");
+assert.equal(page.control.checked, "true");
 assert.equal(page.root.dataset.theme, "dark");
 page = boot({ blocked: true });
-page.choose("dark");
+page.toggle();
 assert.equal(page.root.dataset.theme, "dark");
 assert.equal(page.meta.content, "#161617");
 assert.equal(boot({ saved: "unexpected", dark: true }).initial, "dark");

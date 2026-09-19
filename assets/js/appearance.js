@@ -17,6 +17,8 @@
           : "light"
         : preference;
     document.documentElement.dataset.theme = theme;
+    const control = document.querySelector("#appearance-toggle");
+    if (control) control.setAttribute("aria-checked", String(theme === "dark"));
     const meta = document.querySelector('meta[name="theme-color"]');
     if (meta) meta.content = theme === "dark" ? "#161617" : "#ffffff";
   };
@@ -28,16 +30,15 @@
       ? event.newValue
       : "system";
     apply();
-    const control = document.querySelector("#appearance-select");
-    if (control) control.value = preference;
   });
   document.addEventListener("DOMContentLoaded", () => {
-    const control = document.querySelector("#appearance-select");
+    const control = document.querySelector("#appearance-toggle");
     if (!control) return;
-    control.value = preference;
+    apply();
     control.closest(".appearance").hidden = false;
-    control.addEventListener("change", () => {
-      preference = control.value;
+    control.addEventListener("click", () => {
+      preference =
+        document.documentElement.dataset.theme === "dark" ? "light" : "dark";
       try {
         localStorage.setItem(key, preference);
       } catch (_) {
