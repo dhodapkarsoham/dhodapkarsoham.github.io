@@ -1,5 +1,5 @@
 <figure class="interests-graph">
-  <svg viewBox="0 0 560 460" role="img" aria-labelledby="interests-title interests-description">
+  <svg viewBox="0 0 560 460" role="group" aria-labelledby="interests-title interests-description">
     <title id="interests-title">A few of my connections</title>
     <desc id="interests-description">A constellation of interests: graphs, data, AI, coffee, tennis, astronomy, and badminton.</desc>
     <defs>
@@ -15,7 +15,14 @@
     </g>
     <g class="graph-node" transform="translate(180 80)"><circle r="40"/><text y="7">Data</text></g>
     <g class="graph-node" transform="translate(380 80)"><circle r="36"/><text y="7">AI</text></g>
-    <g class="graph-node graph-center" transform="translate(280 225)"><circle r="57"/><use class="interest-icon" href="#interest-graphs" y="-13"/><text y="27">Graphs</text></g>
+    <a class="graph-center-link" href="https://neo4j.com/" aria-label="Graphs — visit Neo4j" transform="translate(280 225)">
+      <g class="graph-node graph-center">
+        <rect class="graph-center-surface" x="-57" y="-57" width="114" height="114" rx="57"/>
+        <g class="graph-center-label" aria-hidden="true"><use class="interest-icon" href="#interest-graphs" y="-13"/><text y="27">Graphs</text></g>
+        <image class="graph-neo4j-logo" href="{{ '/assets/img/neo4j-logo-fullcolor.jpg' | relative_url }}" x="-64" y="-22" width="128" height="44" preserveAspectRatio="xMidYMid meet" aria-hidden="true"/>
+        <rect class="graph-center-focus" x="-83" y="-63" width="166" height="126" rx="32"/>
+      </g>
+    </a>
     <g class="graph-node" transform="translate(470 225)"><circle r="49"/><use class="interest-icon" href="#interest-coffee" y="-14"/><text y="28">Coffee</text></g>
     <g class="graph-node" transform="translate(375 375)"><circle r="48"/><use class="interest-icon" href="#interest-tennis" y="-14"/><text y="28">Tennis</text></g>
     <g class="graph-node" transform="translate(160 375)"><circle r="59"/><use class="interest-icon" href="#interest-badminton" y="-15"/><text y="28">Badminton</text></g>
