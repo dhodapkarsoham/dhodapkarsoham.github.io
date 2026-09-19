@@ -6,7 +6,11 @@
 # --- Required options --- #
 
 # Name of website
-title: dhodapkarsoham.github.io
+title: Soham Dhodapkar
+url: "https://dhodapkarsoham.github.io"
+baseurl: ""
+description: "A personal notebook on graphs, data, AI, and life along the way."
+rss-description: "Writing about graphs, data, AI, and life by Soham Dhodapkar."
 
 # Your name to show in the footer
 author: Soham Dhodapkar
@@ -193,7 +197,7 @@ timezone: "America/Toronto"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 5
+
 
 kramdown:
   input: GFM
@@ -224,9 +228,11 @@ exclude:
   - README.md
   - screenshot.png
   - docs/
+  - vendor/
+  - .bundle/
+  - scripts/
 
 plugins:
-  - jekyll-paginate
   - jekyll-sitemap
 
 # Beautiful Jekyll / Dean Attali
