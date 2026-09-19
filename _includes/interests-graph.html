@@ -1,8 +1,10 @@
 <figure class="interests-graph">
-  <svg viewBox="0 0 560 460" role="img" aria-labelledby="interests-title interests-description">
+  <svg viewBox="0 0 560 460" role="group" aria-labelledby="interests-title interests-description">
     <title id="interests-title">A few of my connections</title>
     <desc id="interests-description">A constellation of interests: graphs, data, AI, coffee, tennis, astronomy, and badminton.</desc>
     <defs>
+      <g id="interest-data"><ellipse cy="-10" rx="13" ry="5"/><path d="M-13-10V10a13 5 0 0 0 26 0V-10 M-13 0a13 5 0 0 0 26 0"/></g>
+      <g id="interest-ai"><rect x="-11" y="-11" width="22" height="22" rx="4"/><path d="M-5-17v6M5-17v6M-5 11v6M5 11v6M-17-5h6M-17 5h6M11-5h6M11 5h6 M-4-4h8v8h-8Z"/></g>
       <g id="interest-coffee"><path d="M-10-8h17v12a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7Z M7-6h3a5 5 0 0 1 0 10H7 M-13 15h25 M-5-13v-5 M2-13v-5"/></g>
       <g id="interest-tennis"><circle r="14"/><path d="M-11-9Q5 0-11 9M11-9Q-5 0 11 9"/></g>
       <g id="interest-astronomy"><circle r="10"/><ellipse rx="20" ry="5" transform="rotate(-30)"/><path d="M17-20v6m-3-3h6"/></g>
@@ -13,13 +15,20 @@
       <path pathLength="1" d="M280 225 180 80 80 210 160 375 280 225 375 375 470 225 380 80 280 225 80 210"/>
       <path pathLength="1" d="M180 80 380 80M280 225H470M160 375H375"/>
     </g>
-    <g class="graph-node" transform="translate(180 80)"><circle r="40"/><text y="7">Data</text></g>
-    <g class="graph-node" transform="translate(380 80)"><circle r="36"/><text y="7">AI</text></g>
-    <g class="graph-node graph-center" transform="translate(280 225)"><circle r="57"/><use class="interest-icon" href="#interest-graphs" y="-13"/><text y="27">Graphs</text></g>
-    <g class="graph-node" transform="translate(470 225)"><circle r="49"/><use class="interest-icon" href="#interest-coffee" y="-14"/><text y="28">Coffee</text></g>
-    <g class="graph-node" transform="translate(375 375)"><circle r="48"/><use class="interest-icon" href="#interest-tennis" y="-14"/><text y="28">Tennis</text></g>
-    <g class="graph-node" transform="translate(160 375)"><circle r="59"/><use class="interest-icon" href="#interest-badminton" y="-15"/><text y="28">Badminton</text></g>
-    <g class="graph-node" transform="translate(80 210)"><circle r="60"/><use class="interest-icon" href="#interest-astronomy" y="-15"/><text y="28">Astronomy</text></g>
+    <g class="graph-node" transform="translate(180 80)"><circle r="60"/><use class="interest-icon" href="#interest-data" y="-14"/><text y="28">Data</text></g>
+    <g class="graph-node" transform="translate(380 80)"><circle r="60"/><use class="interest-icon" href="#interest-ai" y="-14"/><text y="28">AI</text></g>
+    <a class="graph-center-link" href="https://neo4j.com/" aria-label="Graphs — visit Neo4j" transform="translate(280 225)">
+      <g class="graph-node graph-center">
+        <rect class="graph-center-surface" x="-60" y="-60" width="120" height="120" rx="60"/>
+        <g class="graph-center-label" aria-hidden="true"><use class="interest-icon" href="#interest-graphs" y="-14"/><text y="28">Graphs</text></g>
+        <image class="graph-neo4j-logo" href="{{ '/assets/img/neo4j-logo-fullcolor.jpg' | relative_url }}" x="-49" y="-17" width="98" height="34" preserveAspectRatio="xMidYMid meet" aria-hidden="true"/>
+        <rect class="graph-center-focus" x="-66" y="-66" width="132" height="132" rx="66"/>
+      </g>
+    </a>
+    <g class="graph-node" transform="translate(470 225)"><circle r="60"/><use class="interest-icon" href="#interest-coffee" y="-14"/><text y="28">Coffee</text></g>
+    <g class="graph-node" transform="translate(375 375)"><circle r="60"/><use class="interest-icon" href="#interest-tennis" y="-14"/><text y="28">Tennis</text></g>
+    <g class="graph-node" transform="translate(160 375)"><circle r="60"/><use class="interest-icon" href="#interest-badminton" y="-14"/><text y="28">Badminton</text></g>
+    <g class="graph-node" transform="translate(80 210)"><circle r="60"/><use class="interest-icon" href="#interest-astronomy" y="-14"/><text y="28">Astronomy</text></g>
     <g class="graph-satellites" aria-hidden="true"><circle cx="235" cy="152" r="3"/><circle cx="426" cy="152" r="3"/><circle cx="207" cy="317" r="3"/></g>
   </svg>
   <figcaption>Things I keep coming back to.</figcaption>

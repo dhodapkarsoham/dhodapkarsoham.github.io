@@ -231,6 +231,7 @@ exclude:
   - vendor/
   - .bundle/
   - scripts/
+  - assets/img/neo4j-logo-source.md
 
 plugins:
   - jekyll-sitemap
