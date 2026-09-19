@@ -192,40 +192,122 @@ h3 {
 }
 .intro {
   display: grid;
-  grid-template-columns: 1.35fr 1fr;
-  gap: 85px;
-  align-items: end;
-  padding-block: 88px 96px;
+  grid-template-columns: 0.9fr 1.2fr;
+  gap: 50px;
+  align-items: center;
+  padding-block: 55px 64px;
 }
 .intro h1 {
-  font-size: clamp(64px, 7.6vw, 104px);
-  letter-spacing: -0.065em;
-  line-height: 0.98;
-  margin: 0 0 30px;
+  font-size: 34px;
+  letter-spacing: -0.04em;
+  line-height: 1.15;
+  margin: 0 0 18px;
 }
-.intro-name > p {
-  font-size: 18px;
-  color: var(--muted);
-  letter-spacing: -0.02em;
-  margin-bottom: 0;
-}
-.intro-bio {
-  padding-bottom: 3px;
-}
-.intro-bio img {
-  width: 80px;
-  height: 80px;
+.intro-portrait {
+  width: 64px;
+  height: 64px;
   object-fit: cover;
-  border-radius: 22px;
-  margin-bottom: 22px;
+  border-radius: 18px;
   filter: grayscale(1);
+  margin-bottom: 22px;
 }
-.intro-bio p {
-  font-size: 19px;
-  line-height: 1.6;
+.intro-description {
+  font-size: 24px;
+  line-height: 1.4;
   letter-spacing: -0.025em;
+  margin-bottom: 20px;
+}
+.intro-detail {
   max-width: 340px;
-  margin-bottom: 18px;
+  font-size: 16px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin-bottom: 20px;
+}
+.interests-graph {
+  min-width: 0;
+  margin: 0;
+}
+.interests-graph svg {
+  display: block;
+  width: 100%;
+  overflow: visible;
+}
+.interests-graph figcaption {
+  text-align: center;
+  font-size: 12px;
+  color: var(--muted);
+  margin-top: 8px;
+}
+.graph-edges {
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+.graph-edges path {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 0;
+  animation: connect-interests 2.8s ease-out both;
+}
+.graph-node circle {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.graph-node text {
+  font-family: var(--font);
+  font-size: 20px;
+  letter-spacing: -0.025em;
+  fill: var(--ink);
+  text-anchor: middle;
+}
+.graph-node .interest-icon {
+  color: var(--muted);
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.graph-center circle {
+  fill: var(--ink);
+  stroke: var(--ink);
+}
+.graph-center text {
+  fill: var(--paper);
+}
+.graph-center .interest-icon {
+  color: var(--paper);
+}
+.graph-center .interest-icon circle {
+  fill: var(--ink);
+  stroke: var(--paper);
+}
+.graph-satellites {
+  fill: var(--muted);
+  animation: reveal-connections 2.8s ease-out both;
+}
+@keyframes connect-interests {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes reveal-connections {
+  0%,
+  65% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .graph-edges path,
+  .graph-satellites {
+    animation: none;
+  }
 }
 .text-link {
   display: inline-flex;
@@ -641,17 +723,14 @@ h3 {
     overflow: hidden;
   }
   .intro {
-    gap: 36px;
-    padding-block: 64px;
+    gap: 20px;
+    padding-block: 48px;
   }
   .intro h1 {
-    font-size: 74px;
+    font-size: 30px;
   }
-  .intro-bio p {
-    font-size: 17px;
-  }
-  .intro-name > p {
-    max-width: 230px;
+  .intro-description {
+    font-size: 22px;
   }
   .post-preview {
     grid-template-columns: 120px minmax(0, 1fr) 36px;
@@ -684,32 +763,25 @@ h3 {
   }
   .intro {
     grid-template-columns: 1fr;
-    gap: 32px;
-    padding-block: 48px 52px;
+    gap: 26px;
+    padding-block: 38px 40px;
   }
   .intro h1 {
-    font-size: clamp(54px, 16vw, 82px);
-    margin-bottom: 22px;
+    font-size: 30px;
   }
-  .intro-name > p {
+  .intro-portrait {
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    margin-bottom: 18px;
+  }
+  .intro-detail {
     max-width: none;
-    font-size: 16px;
   }
-  .intro-bio {
-    display: grid;
-    grid-template-columns: 56px 1fr;
-    gap: 0 18px;
-  }
-  .intro-bio img {
-    width: 56px;
-    height: 56px;
-    border-radius: 16px;
-    grid-row: 1 / 3;
-    margin: 0;
-  }
-  .intro-bio p {
-    font-size: 16px;
-    margin-bottom: 12px;
+  .interests-graph {
+    width: 100%;
+    max-width: 420px;
+    justify-self: center;
   }
   .section-heading {
     align-items: flex-start;

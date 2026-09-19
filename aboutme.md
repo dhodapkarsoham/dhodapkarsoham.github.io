@@ -10,6 +10,8 @@ I’m Soham Dhodapkar, a Solutions Engineer at [Neo4j](https://neo4j.com). I lik
 
 This blog is my personal notebook. I write about graphs, data, and AI, share practical things I learn, and leave room for personal stories and whatever else catches my curiosity.
 
+Away from the keyboard, I’m a fan of coffee, tennis, astronomy, and badminton.
+
 ## Published on Neo4j
 
 {% for post in site.data.external_posts %}
