@@ -198,18 +198,11 @@ h3 {
   padding-block: 55px 64px;
 }
 .intro h1 {
-  font-size: 34px;
-  letter-spacing: -0.04em;
-  line-height: 1.15;
-  margin: 0 0 18px;
-}
-.intro-portrait {
-  width: 64px;
-  height: 64px;
-  object-fit: cover;
-  border-radius: 18px;
-  filter: grayscale(1);
-  margin-bottom: 22px;
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.4;
+  letter-spacing: -.025em;
+  margin: 0 0 20px;
 }
 .intro-description {
   font-size: 24px;
@@ -727,7 +720,7 @@ h3 {
     padding-block: 48px;
   }
   .intro h1 {
-    font-size: 30px;
+    font-size: 24px;
   }
   .intro-description {
     font-size: 22px;
@@ -767,13 +760,7 @@ h3 {
     padding-block: 38px 40px;
   }
   .intro h1 {
-    font-size: 30px;
-  }
-  .intro-portrait {
-    width: 52px;
-    height: 52px;
-    border-radius: 15px;
-    margin-bottom: 18px;
+    font-size: 24px;
   }
   .intro-detail {
     max-width: none;
