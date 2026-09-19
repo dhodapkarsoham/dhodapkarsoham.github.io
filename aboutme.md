@@ -10,6 +10,12 @@ I’m Soham Dhodapkar, a Solutions Engineer at [Neo4j](https://neo4j.com). I lik
 
 This blog is my personal notebook. I write about graphs, data, and AI, share practical things I learn, and leave room for personal stories and whatever else catches my curiosity.
 
+## Published on Neo4j
+
+{% for post in site.data.external_posts %}
+- [{{ post.title }}]({{ post.url }}) — {{ post.date | date: '%B %-d, %Y' }}
+{% endfor %}
+
 ## Stay connected
 
 Find me on [GitHub](https://github.com/dhodapkarsoham) and [LinkedIn](https://www.linkedin.com/in/sohamdhodapkar/), or [subscribe via RSS]({{ '/feed.xml' | relative_url }}) for new posts.

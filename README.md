@@ -29,7 +29,13 @@ tags: [Personal]
 
 Write Markdown below the front matter. Technical and personal posts share the same feed; tags are generated automatically. Use descriptive image alt text and `{{ '/assets/img/example.png' | relative_url }}` for image paths. Set `archived: true` to show the historical-context note on an older tutorial.
 
-The homepage shows all published posts. Search filters titles, descriptions, and tags in the browser; browsing and reading still work without JavaScript. RSS is available at `/feed.xml` and topics at `/tags`. Existing dated post URLs are preserved.
+The homepage shows all published posts. Search includes local posts and the linked Neo4j articles, filtering titles, descriptions, and topics in the browser; browsing and reading still work without JavaScript. RSS is available at `/feed.xml` and topics at `/tags`. Existing dated post URLs are preserved.
+
+## Appearance
+
+The header provides System, Light, and Dark options. System follows device preferences, including live changes. An explicit choice is saved locally and applied before the page paints. All pages share the theme, including code blocks. With JavaScript disabled, the site follows the device color scheme.
+
+External articles are maintained in `_data/external_posts.yml` and appear on the homepage and About page. Their links lead to the original publication; they are not republished in the RSS feed.
 
 ## Design and configuration
 
@@ -50,6 +56,7 @@ Continue using the repository’s existing GitHub Pages source branch and root d
 ```sh
 bundle exec jekyll build
 python3 scripts/check_site.py
+node scripts/check_appearance.cjs
 ```
 
 The check validates internal links and images, RSS XML, the original post URL, and the main pages.

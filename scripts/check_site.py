@@ -29,6 +29,17 @@ for route in ('index.html', 'aboutme/index.html', 'tags/index.html', '404.html',
               '2021-06-09-neo4j-aad/index.html', 'sitemap.xml'):
     if not (root / route).is_file():
         errors.append(f'Missing required route: {route}')
+expected_external = (
+    'https://neo4j.com/blog/cypher-and-gql/getting-started-with-neo4j-fabric/',
+    'https://neo4j.com/blog/machine-learning/accelerating-towards-natural-language-search-graphs/',
+)
+for route in ('index.html', 'aboutme/index.html'):
+    html = (root / route).read_text()
+    for url in expected_external:
+        if f'href="{url}"' not in html:
+            errors.append(f'{route}: missing Neo4j article reference {url}')
+    if 'id="appearance-select"' not in html:
+        errors.append(f'{route}: missing appearance control')
 feed = ET.parse(root / 'feed.xml')
 if not feed.findall('./channel/item'):
     errors.append('RSS feed contains no posts')

@@ -1,43 +1,35 @@
 ---
 layout: base
 ---
-<section class="intro wrap">
-  <div class="intro-copy">
-    <p class="hello">Hi, I’m Soham.</p>
-    <h1>There’s always<br>another connection.</h1>
-    <p class="intro-description">Exploring graphs, data, and AI.<br>And writing about life along the way.</p>
-    <a class="text-link" href="#writing">Explore the writing <span aria-hidden="true">↓</span></a>
-  </div>
-  <div class="graph-illustration">
-    <svg viewBox="0 0 480 410" role="img" aria-labelledby="graph-title graph-desc">
-      <title id="graph-title">A few of my connected interests</title>
-      <desc id="graph-desc">A graph connects graphs, data, AI, life, and ideas.</desc>
-      <defs><pattern id="dots" width="22" height="22" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r="1" fill="#c9d6ea"/></pattern></defs>
-      <rect x="10" y="10" width="460" height="390" rx="40" fill="url(#dots)"/>
-      <g fill="none" stroke="#97afd3" stroke-width="1.5"><path d="M118 123L300 82L356 239L212 317L118 123L356 239M118 123L69 273L212 317L300 82"/></g>
-      <g font-family="Avenir Next, sans-serif" font-size="17" text-anchor="middle">
-        <circle cx="118" cy="123" r="53" fill="#245acb"/><text x="118" y="129" fill="white">Graphs</text>
-        <circle cx="300" cy="82" r="40" fill="#fff" stroke="#97afd3"/><text x="300" y="88" fill="#182b49">Data</text>
-        <circle cx="356" cy="239" r="48" fill="#e4edff" stroke="#97afd3"/><text x="356" y="245" fill="#182b49">AI</text>
-        <circle cx="212" cy="317" r="44" fill="#fff" stroke="#97afd3"/><text x="212" y="323" fill="#182b49">Life</text>
-        <circle cx="69" cy="273" r="31" fill="#fff" stroke="#97afd3"/><text x="69" y="279" fill="#182b49" font-size="14">Ideas</text>
-      </g>
-      <g fill="#245acb"><circle cx="223" cy="101" r="5"/><circle cx="279" cy="278" r="5"/><circle cx="153" cy="225" r="5"/></g>
-    </svg>
-  </div>
+<section class="intro wrap" aria-labelledby="intro-title">
+  <div class="intro-name"><h1 id="intro-title">Soham<br>Dhodapkar.</h1><p>Graphs, data, AI. And the rest of life.</p></div>
+  <div class="intro-bio"><img src="{{ site.avatar | relative_url }}" alt="Soham Dhodapkar" width="96" height="96"><p>I’m a Solutions Engineer at Neo4j. This is where I write about the things I’m working on, learning, and thinking about.</p><a class="text-link" href="{{ '/aboutme' | relative_url }}">A little about me <span aria-hidden="true">›</span></a></div>
 </section>
 <section id="writing" class="writing wrap" aria-labelledby="writing-title">
-  <div class="section-heading"><div><h2 id="writing-title">The notebook</h2><p>Technical deep dives. Personal perspectives. A little curiosity.</p></div><div class="search" hidden><label for="post-search">Find a post</label><input id="post-search" type="search" placeholder="Search titles, topics…" autocomplete="off"></div></div>
-  <div class="post-feed">
+  <div class="section-heading"><div><h2 id="writing-title">Writing</h2><p>Notes from work and life.</p></div><div class="search" hidden><label class="sr-only" for="post-search">Search writing</label><input id="post-search" type="search" placeholder="Search writing" autocomplete="off" aria-controls="writing-results external-posts"></div></div>
+  <div class="post-feed" id="writing-results">
     {% for post in site.posts %}
     <article class="post-preview" data-search="{{ post.title | append: ' ' | append: post.tags | append: ' ' | append: post.description | downcase | escape }}">
       <div class="post-date"><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: '%b %-d, %Y' }}</time><span>{{ post.content | number_of_words | divided_by: 200 | plus: 1 }} min read</span></div>
-      <div class="post-summary"><div class="tags">{% for tag in post.tags %}<a href="{{ '/tags' | relative_url }}#{{ tag | uri_escape }}">{{ tag | escape }}</a>{% endfor %}</div><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 38 }}</p><a class="text-link" href="{{ post.url | relative_url }}">Read the post <span class="sr-only">{{ post.title | escape }}</span><span aria-hidden="true">↗</span></a></div>
+      <div class="post-summary"><h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3><p>{{ post.description | default: post.excerpt | strip_html | truncatewords: 38 }}</p><div class="tags">{% for tag in post.tags %}<a href="{{ '/tags' | relative_url }}#{{ tag | uri_escape }}">{{ tag | escape }}</a>{% endfor %}</div></div>
+      <a class="post-open" href="{{ post.url | relative_url }}" aria-label="Read {{ post.title | escape }}"><span aria-hidden="true">↗</span></a>
     </article>
     {% endfor %}
   </div>
   <p id="search-status" class="search-status" role="status" aria-live="polite"></p>
-  <p class="archive-link"><a href="{{ '/tags' | relative_url }}">Browse all topics</a></p>
+  <a class="text-link archive-link" href="{{ '/tags' | relative_url }}">Browse topics <span aria-hidden="true">›</span></a>
 </section>
-<section class="author-note wrap"><img src="{{ site.avatar | relative_url }}" alt="Soham Dhodapkar" width="72" height="72" loading="lazy"><div><h2>A bit about the person behind the posts.</h2><p>I’m a Solutions Engineer at Neo4j. This is my space for exploring technology, sharing what I learn, and the occasional personal detour.</p><a class="text-link" href="{{ '/aboutme' | relative_url }}">More about me <span aria-hidden="true">↗</span></a></div></section>
+<section class="elsewhere wrap" aria-labelledby="elsewhere-title">
+  <div class="elsewhere-heading"><h2 id="elsewhere-title">Published on Neo4j</h2><p>Some of my longer technical pieces, over on neo4j.com.</p></div>
+  <div class="external-posts" id="external-posts">
+    {% for post in site.data.external_posts %}
+    <article class="external-post" data-search="{{ post.title | append: ' ' | append: post.description | append: ' ' | append: post.topics | downcase | escape }}">
+      <p class="external-meta"><time datetime="{{ post.date }}">{{ post.date | date: '%B %-d, %Y' }}</time><span>{{ post.reading_minutes }} min read</span></p>
+      <h3><a href="{{ post.url }}">{{ post.title | escape }}</a></h3>
+      <p>{{ post.description | escape }}</p>
+      <a class="text-link" href="{{ post.url }}">Read on neo4j.com <span aria-hidden="true">↗</span><span class="sr-only">: {{ post.title | escape }}</span></a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
 {{ content }}
