@@ -1,0 +1,26 @@
+<figure class="interests-graph">
+  <svg viewBox="0 0 560 460" role="img" aria-labelledby="interests-title interests-description">
+    <title id="interests-title">A few of my connections</title>
+    <desc id="interests-description">A constellation of interests: graphs, data, AI, coffee, tennis, astronomy, and badminton.</desc>
+    <defs>
+      <g id="interest-coffee"><path d="M-10-8h17v12a7 7 0 0 1-7 7h-3a7 7 0 0 1-7-7Z M7-6h3a5 5 0 0 1 0 10H7 M-13 15h25 M-5-13v-5 M2-13v-5"/></g>
+      <g id="interest-tennis"><circle r="14"/><path d="M-11-9Q5 0-11 9M11-9Q-5 0 11 9"/></g>
+      <g id="interest-astronomy"><circle r="10"/><ellipse rx="20" ry="5" transform="rotate(-30)"/><path d="M17-20v6m-3-3h6"/></g>
+      <g id="interest-badminton"><path d="m-13-16 26 0-8 25H-5Z M-5-16 3 9M5-16-3 9M-5 9a5 5 0 0 0 10 0 M-9-3H9"/></g>
+      <g id="interest-graphs"><path d="m-12-6 22-4-7 23Z"/><circle cx="-12" cy="-6" r="3"/><circle cx="10" cy="-10" r="3"/><circle cx="3" cy="13" r="3"/></g>
+    </defs>
+    <g class="graph-edges" fill="none">
+      <path pathLength="1" d="M280 225 180 80 80 210 160 375 280 225 375 375 470 225 380 80 280 225 80 210"/>
+      <path pathLength="1" d="M180 80 380 80M280 225H470M160 375H375"/>
+    </g>
+    <g class="graph-node" transform="translate(180 80)"><circle r="40"/><text y="7">Data</text></g>
+    <g class="graph-node" transform="translate(380 80)"><circle r="36"/><text y="7">AI</text></g>
+    <g class="graph-node graph-center" transform="translate(280 225)"><circle r="57"/><use class="interest-icon" href="#interest-graphs" y="-13"/><text y="27">Graphs</text></g>
+    <g class="graph-node" transform="translate(470 225)"><circle r="49"/><use class="interest-icon" href="#interest-coffee" y="-14"/><text y="28">Coffee</text></g>
+    <g class="graph-node" transform="translate(375 375)"><circle r="48"/><use class="interest-icon" href="#interest-tennis" y="-14"/><text y="28">Tennis</text></g>
+    <g class="graph-node" transform="translate(160 375)"><circle r="59"/><use class="interest-icon" href="#interest-badminton" y="-15"/><text y="28">Badminton</text></g>
+    <g class="graph-node" transform="translate(80 210)"><circle r="60"/><use class="interest-icon" href="#interest-astronomy" y="-15"/><text y="28">Astronomy</text></g>
+    <g class="graph-satellites" aria-hidden="true"><circle cx="235" cy="152" r="3"/><circle cx="426" cy="152" r="3"/><circle cx="207" cy="317" r="3"/></g>
+  </svg>
+  <figcaption>Things I keep coming back to.</figcaption>
+</figure>

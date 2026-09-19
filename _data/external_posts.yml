@@ -1,0 +1,12 @@
+- title: Getting started with Neo4j Fabric
+  url: https://neo4j.com/blog/cypher-and-gql/getting-started-with-neo4j-fabric/
+  date: "2020-07-02"
+  reading_minutes: 8
+  topics: Neo4j Fabric Cypher data federation graphs
+  description: Setting up Fabric and using Cypher to work across multiple graphs, with a practical banking example.
+- title: Accelerating towards natural language search with graphs
+  url: https://neo4j.com/blog/machine-learning/accelerating-towards-natural-language-search-graphs/
+  date: "2019-08-29"
+  reading_minutes: 16
+  topics: Neo4j NLP AI knowledge graphs natural language Python
+  description: Turning text into a knowledge graph and building a natural language interface with Python and Neo4j.
