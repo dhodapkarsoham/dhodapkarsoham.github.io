@@ -17,6 +17,8 @@ _Intro placeholder._
 
 ## The graph
 
+{% include sky-model.html %}
+
 {% comment %}
 TODO: Walk through the model. Facts for reference:
      Nodes: Star (16,846), Planet (6,473), Constellation (88), Mission (73), Method (11).
