@@ -5,7 +5,11 @@ tags: [Neo4j, Relate, Astronomy, Cypher]
 description: "Stars, constellations and every confirmed exoplanet in one graph, queried live in your browser with Relate."
 ---
 
-<!-- TODO(intro): Why the sky is a graph: stars joined by stick figures, planets orbiting stars, discoveries tied to missions and methods. Mention that everything below runs in the browser. -->
+> **Work in progress.** The sky map and its live queries are ready to explore; the writing around them is still being drafted.
+
+{% comment %}
+TODO(intro): Why the sky is a graph: stars joined by stick figures, planets orbiting stars, discoveries tied to missions and methods. Mention that everything below runs in the browser.
+{% endcomment %}
 
 _Intro placeholder._
 
@@ -13,12 +17,14 @@ _Intro placeholder._
 
 ## The graph
 
-<!-- TODO: Walk through the model. Facts for reference:
+{% comment %}
+TODO: Walk through the model. Facts for reference:
      Nodes: Star (16,846), Planet (6,473), Constellation (88), Mission (73), Method (11).
      Relationships: (:Star)-[:IN]->(:Constellation), (:Star)-[:LINE_TO]->(:Star) for stick figures (743),
      (:Star)-[:NEAR {ly}]->(:Star) for stars within 100 ly that are <= 10 ly apart (11,688),
      (:Planet)-[:ORBITS]->(:Star), (:Planet)-[:FOUND_BY]->(:Mission), (:Planet)-[:DETECTED_VIA]->(:Method).
-     Planet.features: normalized 5-d vector (radius, mass, period, equilibrium temperature, insolation). -->
+     Planet.features: normalized 5-d vector (radius, mass, period, equilibrium temperature, insolation).
+{% endcomment %}
 
 _Model placeholder._
 
@@ -26,10 +32,12 @@ The pipeline that builds the graph is on GitHub: [dhodapkarsoham/sky-graph](http
 
 ## Query 1: a road trip to TRAPPIST-1
 
-<!-- TODO: Shortest route from the Sun to TRAPPIST-1 with jumps <= 6 ly.
+{% comment %}
+TODO: Shortest route from the Sun to TRAPPIST-1 with jumps <= 6 ly.
      Result: no route; only 5 stars are reachable (Proxima Centauri, Rigil Kentaurus, Toliman, Barnard's Star, Ross 154).
      The smallest workable jump is 8.21 ly; at <= 8.5 ly the route is 19 jumps / 124.4 ly via Barnard's Star,
-     Ross 154, Lacaille 8760, GJ 876 ... and detours out to ~56 ly. HYG misses many faint red dwarfs. -->
+     Ross 154, Lacaille 8760, GJ 876 ... and detours out to ~56 ly. HYG misses many faint red dwarfs.
+{% endcomment %}
 
 _Query 1 placeholder._
 
@@ -41,9 +49,11 @@ RETURN [n IN nodes(p) | n.name] AS route
 
 ## Query 2: Earth-like planets you can point at
 
-<!-- TODO: Top 10 Earth-like planets whose host star is visible to the naked eye, with constellation.
+{% comment %}
+TODO: Top 10 Earth-like planets whose host star is visible to the naked eye, with constellation.
      Result: tau Cet h and f (Cetus) lead, then HD 20794 e/d/f (82 Eridani). Similarity is euclidean distance
-     on the feature vector, so it is a likeness score, not a habitability index. -->
+     on the feature vector, so it is a likeness score, not a habitability index.
+{% endcomment %}
 
 _Query 2 placeholder._
 
@@ -57,9 +67,11 @@ ORDER BY similarity DESC LIMIT 10
 
 ## Query 3: where and how we found them
 
-<!-- TODO: Planet counts by constellation, and by discovery method per decade.
+{% comment %}
+TODO: Planet counts by constellation, and by discovery method per decade.
      Result: Cygnus 1,683 and Lyra 1,062 (Kepler field), Draco 319, Sagittarius 239 (microlensing toward the bulge).
-     Transits dominate from the 2010s on (3,078 that decade). -->
+     Transits dominate from the 2010s on (3,078 that decade).
+{% endcomment %}
 
 _Query 3 placeholder._
 
