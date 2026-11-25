@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="{{ '/assets/sky-graph/sky-map.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<figure class="sky-model">
+  <svg viewBox="0 0 600 400" role="img" aria-labelledby="sky-model-title sky-model-desc">
+    <title id="sky-model-title">The night-sky graph model</title>
+    <desc id="sky-model-desc">Five node types. A Planet ORBITS a Star, was FOUND_BY a Mission and DETECTED_VIA a Method. A Star is IN a Constellation. Stars connect to other stars with LINE_TO (constellation stick figures) and NEAR, which carries the distance in light-years.</desc>
+    <defs>
+      <marker id="sky-model-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path class="sky-model-head" d="M0 0 10 5 0 10Z"/>
+      </marker>
+    </defs>
+
+    <g class="sky-model-edges" fill="none" marker-end="url(#sky-model-arrow)">
+      <path d="M207.8 179.9 L117.1 121.9"/>
+      <path d="M207.8 240.1 L117.1 298.1"/>
+      <path d="M310.7 216 L379.4 223.5"/>
+      <path d="M465 180 L494.4 121.2"/>
+      <path d="M485.9 262.1 C548 296 512 370 458 291"/>
+      <path d="M425.5 284.1 C378 364 330 300 391 265"/>
+    </g>
+
+    <g class="sky-model-edge-labels">
+      <text x="166" y="144" transform="rotate(32.6 166 144)">FOUND_BY</text>
+      <text class="sky-model-tight" x="160" y="263" transform="rotate(-32.6 160 263)">DETECTED_VIA</text>
+      <text x="346" y="210" transform="rotate(6.2 346 210)">ORBITS</text>
+      <text x="472" y="150" text-anchor="end">IN</text>
+      <text x="530" y="352">LINE_TO</text>
+      <text x="362" y="352">NEAR {ly}</text>
+    </g>
+
+    <g class="sky-model-node" transform="translate(75 95)"><circle r="46"/><text y="-2">Mission</text><text class="sky-model-count" y="16">73</text></g>
+    <g class="sky-model-node" transform="translate(75 325)"><circle r="46"/><text y="-2">Method</text><text class="sky-model-count" y="16">11</text></g>
+    <g class="sky-model-node sky-model-node-key" transform="translate(255 210)"><circle r="56"/><text y="-2">Planet</text><text class="sky-model-count" y="16">6,473</text></g>
+    <g class="sky-model-node sky-model-node-key" transform="translate(440 230)"><circle r="56"/><text y="-2">Star</text><text class="sky-model-count" y="16">16,846</text></g>
+    <g class="sky-model-node" transform="translate(520 70)"><circle r="50"/><text y="-2" class="sky-model-long">Constellation</text><text class="sky-model-count" y="16">88</text></g>
+  </svg>
+
+  <dl class="sky-model-props">
+    <div><dt>Star</dt><dd>name, ra_deg, dec_deg, mag, dist_ly, x_ly/y_ly/z_ly, spect, naked_eye, is_host</dd></div>
+    <div><dt>Planet</dt><dd>name, radius_earth, mass_earth, period_days, eq_temp_k, insolation, disc_year, <strong>features</strong> (a 5-number vector for similarity search)</dd></div>
+    <div><dt>Constellation · Mission · Method</dt><dd>abbr and name · name and locale (space or ground) · name</dd></div>
+    <div><dt>NEAR {ly}</dt><dd>11,688 links between stars within 100 ly of the Sun that are at most 10 ly apart</dd></div>
+    <div><dt>LINE_TO</dt><dd>743 stick-figure segments between naked-eye stars</dd></div>
+  </dl>
+  <figcaption>The graph model: five kinds of nodes and six kinds of relationships. Numbers are node counts.</figcaption>
+</figure>

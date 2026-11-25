@@ -260,3 +260,112 @@
     grid-template-columns: 7.5em 1fr 3.5em;
   }
 }
+
+/* Graph model diagram (_includes/sky-model.html). */
+.sky-model {
+  margin: 32px 0 40px;
+  font-family: var(--font);
+}
+.sky-model svg {
+  display: block;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  overflow: visible;
+}
+.sky-model-edges path {
+  stroke: var(--muted);
+  stroke-width: 1.5;
+}
+.sky-model-head {
+  fill: var(--muted);
+}
+.sky-model-edge-labels text {
+  fill: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-anchor: middle;
+  paint-order: stroke;
+  stroke: var(--paper);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+.sky-model-edge-labels text[text-anchor="end"] {
+  text-anchor: end;
+}
+.sky-model-node circle {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+.sky-model-node-key circle {
+  stroke: var(--ink);
+}
+.sky-model-node text {
+  fill: var(--ink);
+  font-size: 16px;
+  font-weight: 650;
+  text-anchor: middle;
+}
+.sky-model-node .sky-model-long {
+  font-size: 13px;
+}
+.sky-model-node .sky-model-count {
+  fill: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
+  font-variant-numeric: tabular-nums;
+}
+.sky-model-props {
+  display: grid;
+  gap: 8px;
+  max-width: 640px;
+  margin: 24px auto 0;
+  font-size: 14px;
+  line-height: 1.5;
+}
+.sky-model-props div {
+  display: grid;
+  grid-template-columns: 11em 1fr;
+  gap: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+.sky-model-props dt {
+  font-weight: 650;
+}
+.sky-model-props dd {
+  margin: 0;
+  color: var(--muted);
+}
+.sky-model figcaption {
+  max-width: 640px;
+  margin: 14px auto 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+@media (max-width: 580px) {
+  /* The SVG scales down to ~55%, so draw its text larger to stay readable. */
+  .sky-model-edge-labels text {
+    font-size: 15px;
+    letter-spacing: 0.02em;
+  }
+  .sky-model-edge-labels .sky-model-tight {
+    font-size: 12.5px;
+    letter-spacing: 0;
+  }
+  .sky-model-node text {
+    font-size: 19px;
+  }
+  .sky-model-node .sky-model-long {
+    font-size: 14px;
+  }
+  .sky-model-node .sky-model-count {
+    font-size: 15px;
+  }
+  .sky-model-props div {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+}
