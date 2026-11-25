@@ -1,0 +1,262 @@
+/* Sky map for "The night sky as a graph". Uses the site's tokens from notebook.css. */
+.sky-graph {
+  --sky-accent-host: #6cc3ff;
+  --sky-accent-route: #c97a12;
+  margin: 36px 0 44px;
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.5;
+}
+:root[data-theme="dark"] .sky-graph {
+  --sky-accent-route: #ffb454;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme]) .sky-graph {
+    --sky-accent-route: #ffb454;
+  }
+}
+/* Let the map run a little wider than the text column on large screens. */
+@media (min-width: 900px) {
+  .sky-graph {
+    margin-inline: -60px;
+  }
+}
+.sky-canvas {
+  position: relative;
+  border-radius: 14px;
+  background: #0b0f1a;
+  overflow: hidden;
+  min-height: 160px;
+}
+.sky-canvas canvas {
+  display: block;
+  width: 100%;
+  touch-action: manipulation;
+  cursor: crosshair;
+}
+.sky-tooltip {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: grid;
+  gap: 1px;
+  max-width: 240px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: rgba(20, 24, 36, 0.92);
+  color: #e8ecf5;
+  font-size: 13px;
+  line-height: 1.35;
+  pointer-events: none;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+}
+.sky-tooltip .strong {
+  font-weight: 650;
+}
+.sky-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+  margin-top: 12px;
+  color: var(--muted);
+}
+.sky-controls input {
+  accent-color: var(--ink);
+}
+.sky-controls label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  cursor: pointer;
+}
+.sky-swatch {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+.sky-swatch-host {
+  background: var(--sky-accent-host);
+}
+.sky-status {
+  margin: 0 0 0 auto;
+  font-size: 13px;
+}
+.sky-tabs {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  margin-top: 22px;
+  border-bottom: 1px solid var(--line);
+}
+.sky-tabs [role="tab"] {
+  padding: 8px 14px;
+  border: 0;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  background: none;
+  color: var(--muted);
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.sky-tabs [role="tab"][aria-selected="true"] {
+  border-bottom-color: var(--ink);
+  color: var(--ink);
+}
+.sky-tabs [role="tab"]:hover:not(:disabled) {
+  color: var(--ink);
+}
+.sky-tabs [role="tab"]:disabled {
+  cursor: progress;
+  opacity: 0.55;
+}
+.sky-panel {
+  padding: 18px 2px 4px;
+}
+.sky-panel [aria-busy="true"] {
+  opacity: 0.5;
+}
+.sky-panel p {
+  margin: 0 0 10px;
+}
+.sky-panel h4 {
+  margin: 18px 0 10px;
+  font-size: 15px;
+}
+.sky-headline {
+  font-weight: 650;
+}
+.sky-meta {
+  color: var(--muted);
+  font-size: 13px;
+}
+.sky-error {
+  color: var(--code-string);
+}
+.sky-slider {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 14px;
+  color: var(--muted);
+}
+.sky-slider input {
+  width: min(220px, 50vw);
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: none;
+  accent-color: var(--sky-accent-route);
+}
+.sky-slider output {
+  min-width: 2.2em;
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  font-weight: 650;
+  text-align: right;
+}
+.sky-num {
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.sky-hops {
+  columns: 2 220px;
+  column-gap: 32px;
+  margin: 0 0 12px;
+  padding-left: 1.6em;
+}
+.sky-hops li {
+  break-inside: avoid;
+}
+.sky-hops li span:first-child {
+  margin-right: 8px;
+}
+.sky-hops .sky-num {
+  color: var(--muted);
+}
+.sky-scroll {
+  overflow-x: auto;
+  margin-bottom: 10px;
+}
+.sky-graph .sky-table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.sky-graph .sky-table th,
+.sky-graph .sky-table td {
+  padding: 6px 10px 6px 0;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  white-space: nowrap;
+}
+.sky-table th.sky-num,
+.sky-table td.sky-num {
+  text-align: right;
+}
+.sky-table thead th {
+  color: var(--muted);
+  font-weight: 600;
+}
+.sky-graph .sky-table tbody th {
+  min-width: 9em;
+  font-weight: 500;
+  white-space: normal;
+}
+.sky-bars {
+  display: grid;
+  gap: 4px;
+  margin: 0 0 8px;
+  padding: 0;
+  list-style: none;
+}
+.sky-bars li {
+  display: grid;
+  grid-template-columns: 9em 1fr 4em;
+  align-items: center;
+  gap: 10px;
+}
+.sky-bar {
+  height: 10px;
+  width: var(--w);
+  border-radius: 3px;
+  background: var(--ink);
+  opacity: 0.75;
+}
+.sky-graph details {
+  margin-top: 10px;
+}
+.sky-graph summary {
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 14px;
+}
+.sky-graph pre {
+  margin: 8px 0 0;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: var(--surface);
+  font-size: 13px;
+  line-height: 1.5;
+  overflow-x: auto;
+}
+.sky-graph figcaption {
+  margin-top: 16px;
+  color: var(--muted);
+  font-size: 14px;
+}
+@media (max-width: 580px) {
+  .sky-status {
+    margin-left: 0;
+    flex-basis: 100%;
+  }
+  .sky-bars li {
+    grid-template-columns: 7.5em 1fr 3.5em;
+  }
+}
